@@ -1,8 +1,8 @@
 {
   "name": "Collabily",
   "short_name": "Collabily",
-  "theme_color": "#1976d2",
-  "background_color": "#fafafa",
+  "theme_color": "#eeeeee",
+  "background_color": "#eeeeee",
   "display": "standalone",
   "scope": "./",
   "start_url": "./",
