@@ -9,6 +9,6 @@
 
 @media (max-width:481px) {
   .region_chart {
-    height: calc(100vh - 70px - 650px);
+    height: calc(100vh - 70px - 500px);
   }
 }
