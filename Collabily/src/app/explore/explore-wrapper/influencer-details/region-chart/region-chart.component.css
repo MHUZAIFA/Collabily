@@ -1,0 +1,14 @@
+.region_chart {
+  width: 100%;
+  height: calc(100vh - 70px - 330px);
+  display: block;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width:481px) {
+  .region_chart {
+    height: calc(100vh - 70px - 650px);
+  }
+}

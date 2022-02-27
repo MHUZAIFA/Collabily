@@ -1,0 +1,78 @@
+.badge {
+  border: 2px solid #FFFFFF;
+  border-radius: 50%;
+  cursor: pointer;
+  display: inline-block;
+  height: 25px;
+  margin-right: 5px;
+  width: 25px;
+}
+
+.badge.active,
+.fixed-plugin .badge:hover {
+  border-color: #667;
+}
+
+.badge-danger {
+  background-color: #f44336;
+}
+
+.badge-green {
+  background-color: #18ce0f;
+}
+
+.badge-azure {
+  background-color: #2CA8FF;
+}
+
+.badge-darkblue {
+  background-color: darkblue;
+}
+
+.badge-purple {
+  background-color: #9368E9;
+}
+
+.badge-orange {
+  background-color: #f96332;
+}
+
+.images {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.images img {
+  width: 100%;
+  height: 200px;
+  border-radius: 10px;
+  border: 3px solid lightgray;
+}
+
+.images .active img {
+  border: 3px solid #171717;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3);
+}
+
+.images img:hover {
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+.settings_content {
+  height: calc(100vh - 350px);
+  overflow-y: auto;
+  margin: 10px 0;
+}
+
+
+@media screen and (max-width: 750px) {
+  .images img {
+    height: 120px;
+  }
+
+  .settings_content {
+    height: calc(100vh - 270px);
+  }
+}

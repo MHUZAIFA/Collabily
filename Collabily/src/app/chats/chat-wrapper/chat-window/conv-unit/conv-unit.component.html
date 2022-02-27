@@ -1,0 +1,16 @@
+<div class="conv-unit-container" [ngClass]="{'right': unit.byUser, 'left': !unit.byUser}">
+  <div class="profile-image">
+    <img class="profile_pic" [src]="unit.sender.profileUrl"
+      [alt]="unit.sender.displayName" width="50px" height="50px">
+  </div>
+  <div class="conv-unit">
+    <div class="user-message" [ngClass]="{'user': unit.byUser, 'recipient': !unit.byUser}">
+      {{ unit.message }}
+    </div>
+    <div class="timestamp">
+      <span class="material-icons" style="vertical-align: sub;">
+        person
+      </span> {{ unit.sender.displayName }} &nbsp; {{ unit.timeStamp | date : 'medium' }}
+    </div>
+  </div>
+</div>

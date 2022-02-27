@@ -1,0 +1,24 @@
+<app-sidebar-wrapper title="Settings" [loading]="loading" [redirectUri]="redirectUri">
+  <div style="display: flex; flex-direction: row;">
+    <p style="margin-bottom: 0; margin-right: 10px; font-weight: 400;">
+      Theme
+    </p>
+    <div class="user-preference">
+      <a href="javascript:void(0)" class="switch-trigger active-color">
+        <span *ngFor="let theme of Themes" [class]="theme.class" [ngClass]="{'active': selectedTheme === theme.theme}" (click)="changeTheme(theme.theme)"></span>
+      </a>
+    </div>
+  </div>
+
+  <p style="font-weight: 400;">Images</p>
+  <div class="images">
+    <a href="javascript:void(0)" *ngFor="let image of Images" (click)="changeImage(image.src)" [ngClass]="{'active': selectedImage === image.src}">
+      <img [src]="image.src" [alt]="image.displayName">
+    </a>
+  </div>
+
+  <div class="settings_content">
+    <ng-content></ng-content>
+  </div>
+
+</app-sidebar-wrapper>

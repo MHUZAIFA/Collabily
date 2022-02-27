@@ -1,0 +1,51 @@
+<div class="landing_container">
+    <header>
+        <div class="mb_header unselectable">
+            <div>
+                <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+                    <mat-icon>polymer</mat-icon>
+                </button>
+                <span>Collabily</span>
+            </div>
+            <div>
+                <span class="mb_link">Contact</span>
+                <span class="mb_link" [routerLink]="['/sign-in']">Sign In</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="landing_content_wrapper unselectable">
+        <div class="content_details">
+            <h1 class="tag_line">
+                Grow your social media influence
+            </h1>
+            <span class="description">
+                We help in bringing out the best of both worlds, brands and influencers.
+            </span>
+            <button mat-raised-button class="start_saving" [routerLink]="['/register']">
+                Begin your journey today <mat-icon>trending_flat</mat-icon>
+            </button>
+        </div>
+    </div>
+
+    <div>
+        <footer class="unselectable">
+            <mat-toolbar>
+                <button mat-button style="font-size: medium; line-height: 40px;">Follow us</button>
+                <span class="example-spacer"></span>
+                <button mat-icon-button class="example-icon favorite-icon"
+                    aria-label="Example icon-button with heart icon">
+                    <fa-icon [icon]="twitter" style="font-size: large;"></fa-icon>
+                </button>
+                <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+                    <fa-icon [icon]="instagram" style="font-size: large;"></fa-icon>
+                </button>
+                <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+                    <fa-icon [icon]="facebook" style="font-size: large;"></fa-icon>
+                </button>
+            </mat-toolbar>
+        </footer>
+    </div>
+
+
+</div>

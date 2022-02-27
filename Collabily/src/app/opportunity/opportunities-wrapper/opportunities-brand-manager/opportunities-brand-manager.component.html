@@ -1,0 +1,178 @@
+<router-outlet name="modal"></router-outlet>
+<router-outlet name="sidebar"></router-outlet>
+<div class="opportunity_container">
+  <div class="opportunity_list_container"
+    [ngClass]="{'selected': is_mobile_device && !opportunity_summary_window_only, 'not-selected': is_mobile_device && opportunity_summary_window_only}">
+    <div class="opportunity_list_container_header">
+      <input type="text" class="form-control custom_form_control" placeholder="Search an opportunity"
+        aria-label="Recipient's username" aria-describedby="basic-addon2">
+      <div class="opportunity_list_container_header_actions">
+        <div class="d-flex">
+          <button mat-raised-button class="btn btn-default btn-sm" (click)="toggleFilter()">filter</button>
+          <a mat-raised-button class="btn btn-primary btn-sm" style="background-color: darkblue; padding-right: 22px;"
+            [routerLink]="['./', {outlets: { modal: 'new' } }]">
+            <mat-icon style="height: 16px; width: 15px; font-size: 14px; vertical-align: middle;">add</mat-icon> New
+          </a>
+        </div>
+        <a mat-button *ngIf="is_mobile_device" (click)="toggleOpportunityView()" style="padding: 0;">Summary <mat-icon>trending_flat</mat-icon></a>
+      </div>
+    </div>
+    <div class="filter_sort_container">
+      <div style="display: flex; flex-wrap: wrap;">
+        <span class="selected-filter-badge">
+          <span>
+            From: 23-Feb-2022 - To: 25-Feb-2022
+          </span>
+          <mat-icon>close</mat-icon>
+        </span>
+        <span class="selected-filter-badge">
+          <span>
+            Fitness
+          </span>
+          <mat-icon>close</mat-icon>
+        </span>
+        <span class="selected-filter-badge">
+          <span>
+            Shoes
+          </span>
+          <mat-icon>close</mat-icon>
+        </span>
+        <span class="selected-filter-badge">
+          <span>
+            open
+          </span>
+          <mat-icon>close</mat-icon>
+        </span>
+      </div>
+
+      <span class="dropdown">
+        <button class="dropdown-toggle btn btn-default btn-sm custom_dropdown" data-toggle="dropdown">
+          <mat-icon style="width: 15px;">import_export</mat-icon> {{filterBy}}
+          <b class="caret"></b>
+        </button>
+        <ul class="dropdown-menu dropdown-primary dropdown-menu-right">
+          <li class="dropdown-header">Sort By</li>
+          <li><a (click)="filterBy = 'Created Date'">Created Date</a></li>
+          <li><a (click)="filterBy = 'Most Responses'">Most Responses</a></li>
+          <li><a (click)="filterBy = 'Least Responses'">Least Responses</a></li>
+          <li><a (click)="filterBy = 'Recently Updated'">Recently Updated</a></li>
+        </ul>
+      </span>
+    </div>
+    <div [ngClass]="{'mb-3': panelOpenState}">
+      <mat-accordion>
+        <mat-expansion-panel [expanded]="panelOpenState">
+          <div class="mt-3">
+            <div class="d-flex flex-column">
+              <h6 style="letter-spacing: 0.03rem;">
+                Filters:
+              </h6>
+              <div class="d-flex flex-row justify-content-between align-items-center" style="flex-wrap: wrap;">
+                <mat-form-field appearance="outline">
+                  <mat-label>Creation date</mat-label>
+                  <mat-date-range-input [rangePicker]="picker">
+                    <input matStartDate placeholder="Start date">
+                    <input matEndDate placeholder="End date">
+                  </mat-date-range-input>
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-date-range-picker #picker></mat-date-range-picker>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Categories</mat-label>
+                  <mat-select [formControl]="category" multiple panelClass="category_select">
+                    <mat-option *ngFor="let category of categories" [value]="category">{{category}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <div class="d-flex flex-column align-self-start">
+                  <span class="mb-3">
+                    Status
+                  </span>
+                  <div class="d-flex flex-row">
+                    <div class="form-check mr-3 ml-1">
+                      <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" value="">
+                        Opened
+                        <span class="form-check-sign">
+                          <span class="check"></span>
+                        </span>
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" value="">
+                        Closed
+                        <span class="form-check-sign">
+                          <span class="check"></span>
+                        </span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="">
+                  <button mat-raised-button class="btn btn-default btn-sm mr-3">Clear</button>
+                  <button mat-raised-button class="btn btn-primary btn-sm"
+                    style="background-color: darkblue;">Apply</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+    <div class="new_opportunity_container"
+      [ngClass]="{'filter_open': panelOpenState, 'filter_closed': !panelOpenState}">
+      <app-opportunity-card *ngFor="let item of opened" [item]="item" [is_mobile_device]="is_mobile_device"></app-opportunity-card>
+    </div>
+  </div>
+  <div class="opportunity_summary"
+    [ngClass]="{'selected': is_mobile_device && opportunity_summary_window_only, 'not-selected': is_mobile_device && !opportunity_summary_window_only}">
+    <a mat-button *ngIf="is_mobile_device" (click)="toggleOpportunityView()" style="padding: 0;"> <mat-icon style="transform: rotate(180deg);">trending_flat</mat-icon> Opportunity list </a>
+    <div style="height: 40%; width: 100%;" #area_chart_container>
+      <app-stacked-area-chart *ngIf="containerHeight > 0 && containerWidth > 0" [containerHeight]="containerHeight"
+        [containerWidth]="containerWidth" [container]="el"></app-stacked-area-chart>
+    </div>
+    <div>
+      <h3 class="mt-0 mb-3">
+        Top 5 Responders
+      </h3>
+      <div class="d-flex my-2" *ngFor="let responder of responders; last as last; first as first;"
+        [ngClass]="{'border-bottom': !last}">
+        <div class="w-100 d-flex justify-content-between align-items-center"
+          [ngClass]="{'mb-1': first, 'mt-1': last, 'my-2': !(first || last)  }">
+          <div class="d-flex w-100">
+            <img [src]="responder.image" [alt]="responder.name"
+              style="width: 40px; height: 40px; border-radius: 10px; box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.9);">
+            <div class="d-flex flex-column justify-content-between" style="width: 100%; padding: 0 15px;">
+              <h4 style="color: darkblue; font-size: smaller; font-weight: 400; margin-bottom: 5px; cursor: pointer;"
+                [mat-dialog-close]="'b3351ae3-e4cf-4834-9dc7-adc14c3e31a7'"> {{ responder.name }}
+              </h4>
+              <div class="d-flex" style="font-size: x-small;">
+                <div class="followers" *ngIf="responder.followers.insta !== '0'">
+                  <fa-icon [icon]="instagram" class="icon insta"></fa-icon>
+                  <span> {{ responder.followers.insta }} </span>
+                </div>
+                <div class="followers" *ngIf="responder.followers.facebook !== '0'">
+                  <fa-icon [icon]="facebook" class="icon facebook"></fa-icon>
+                  <span> {{ responder.followers.facebook }} </span>
+                </div>
+                <div class="followers" *ngIf="responder.followers.twitter !== '0'">
+                  <fa-icon [icon]="twitter" class="icon twitter"></fa-icon>
+                  <span> {{ responder.followers.twitter }} </span>
+                </div>
+                <div class="followers" *ngIf="responder.followers.youtube !== '0'">
+                  <fa-icon [icon]="youtube" class="icon youtube"></fa-icon>
+                  <span> {{ responder.followers.youtube }} </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button mat-raised-button color="primary"
+            style="background-color: rgb(0, 0, 97); font-size: x-small; display: flex; align-items: center; justify-content: center; padding: 0 10px; width: 100px;">
+            Connect
+            <mat-icon style="font-size: medium; height: 16px; width: 16px;">trending_flat</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

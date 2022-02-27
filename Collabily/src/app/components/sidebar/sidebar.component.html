@@ -1,0 +1,63 @@
+<div class="logo">
+  <div style="display: flex; justify-content: center; align-items: center; width: 100%; color: darkblue;">
+    <mat-icon>polymer</mat-icon>
+    <span style="font-size: larger; font-weight: 400; margin-left: 10px; text-transform: uppercase;">Collabily</span>
+  </div>
+</div>
+<div class="sidebar-wrapper">
+  <div *ngIf="isMobileMenu()">
+    <ul class="nav navbar-nav nav-mobile-menu">
+      <li class="nav-item">
+        <a class="nav-link" href="javascript:void(0)">
+          <i class="material-icons">data_usage</i>
+          <p>
+            <span class="d-lg-none d-md-block">Analytics</span>
+          </p>
+        </a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link" href="javascript:void(0)" id="navbarDropdownMenuLink" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          <i class="material-icons">notifications</i>
+          <p>
+            <span class="d-lg-none d-md-block">Notifications (5)</span>
+          </p>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#">Mike John responded to your email</a>
+          <a class="dropdown-item" href="#">You have 5 new tasks</a>
+          <a class="dropdown-item" href="#">You're now friend with Andrew</a>
+          <a class="dropdown-item" href="#">Another Notification</a>
+          <a class="dropdown-item" href="#">Another One</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="javascript:void(0)" [routerLink]="['', {outlets: { sidebar: 'settings' } } ]">
+          <i class="material-icons">settings</i>
+          <p>
+            <span class="d-lg-none d-md-block">Settings</span>
+          </p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="javascript:void(0)">
+          <i class="material-icons">person</i>
+          <p>
+            <span class="d-lg-none d-md-block">Logout</span>
+          </p>
+        </a>
+      </li>
+      <li>
+        <hr>
+      </li>
+    </ul>
+  </div>
+  <ul class="nav">
+    <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}} nav-item">
+      <a class="nav-link" [routerLink]="[menuItem.path]">
+        <i class="material-icons">{{menuItem.icon}}</i>
+        <p>{{menuItem.title}}</p>
+      </a>
+    </li>
+  </ul>
+</div>

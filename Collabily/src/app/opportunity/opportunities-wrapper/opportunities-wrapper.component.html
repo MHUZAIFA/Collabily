@@ -1,0 +1,11 @@
+<div class="main-content py-0">
+  <div class="container-fluid">
+    <ng-container *ngIf="experience === Experience.BrandManager; then BrandManagerBlock; else InfluencerBlock"></ng-container>
+    <ng-template #BrandManagerBlock>
+      <app-opportunities-brand-manager></app-opportunities-brand-manager>
+    </ng-template>
+    <ng-template #InfluencerBlock>
+      <app-opportunities-influencer></app-opportunities-influencer>
+    </ng-template>
+  </div>
+</div>

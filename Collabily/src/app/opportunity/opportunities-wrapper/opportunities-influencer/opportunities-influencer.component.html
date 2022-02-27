@@ -1,0 +1,26 @@
+<div class="d-flex">
+  <div style="width: 60%;">
+    <mat-form-field appearance="outline">
+      <mat-label>Search</mat-label>
+      <input matInput placeholder="Search for a connection" #search [formControl]="searchTerm" [value]="searchTerm">
+    </mat-form-field>
+    <mat-tab-group mat-stretch-tabs class="example-stretched-tabs" animationDuration="0">
+      <mat-tab label="Recommended">
+        <div class="new_opportunity_container">
+          <app-opportunity-card *ngFor="let item of recommended" [item]="item" ></app-opportunity-card>
+        </div>
+      </mat-tab>
+      <mat-tab label="All">
+        <div class="new_opportunity_container">
+          <app-opportunity-card *ngFor="let item of all" [item]="item" ></app-opportunity-card>
+        </div>
+      </mat-tab>
+      <mat-tab label="History">
+        History
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+  <div style="width: 40%;">
+    saved opportunities
+  </div>
+</div>

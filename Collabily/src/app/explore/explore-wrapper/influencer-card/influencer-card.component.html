@@ -1,0 +1,34 @@
+<a [routerLink]="['./b3351ae3-e4cf-4834-9dc7-adc14c3e31a7']">
+  <div class="card">
+    <img class="card-img" [src]="influencer.image" alt="Bologna">
+    <div class="card-img-overlay text-white d-flex flex-column justify-content-end">
+      <h4 class="card-title"> {{ influencer.name }} </h4>
+      <h6 class="card-subtitle category">
+        <span class="pr-2" *ngFor="let category of influencer.categories; let first = first;" [ngClass]="{'border-left pl-2': !first}">
+          {{ category }}
+        </span>
+      </h6>
+      <div class="d-flex mb-2 justify-content-between">
+        <div class="followers" *ngIf="influencer.followers.insta !== '0'">
+          <fa-icon [icon]="instagram" class="icon insta"></fa-icon>
+          <span> {{ influencer.followers.insta }} </span>
+        </div>
+        <div class="followers" *ngIf="influencer.followers.facebook !== '0'">
+          <fa-icon [icon]="facebook" class="icon facebook"></fa-icon>
+          <span> {{ influencer.followers.facebook }} </span>
+        </div>
+        <div class="followers" *ngIf="influencer.followers.twitter !== '0'">
+          <fa-icon [icon]="twitter" class="icon twitter"></fa-icon>
+          <span> {{ influencer.followers.twitter }} </span>
+        </div>
+        <div class="followers" *ngIf="influencer.followers.youtube !== '0'">
+          <fa-icon [icon]="youtube" class="icon youtube"></fa-icon>
+          <span> {{ influencer.followers.youtube }} </span>
+        </div>
+      </div>
+    </div>
+    <div class="details_container">
+    </div>
+  </div>
+
+</a>

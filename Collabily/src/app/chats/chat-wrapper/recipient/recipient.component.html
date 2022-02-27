@@ -1,0 +1,16 @@
+<div class="recipient_container p-2" [ngClass]="{'border-bottom': !last && !first, 'active': first}" style="cursor: pointer;" (click)="displayMessages()">
+  <img [src]="recipient.image" [alt]="recipient.name" class="recipient_image">
+  <div style="display: flex; flex-direction: column; width: calc(100% - 50px); padding-left: 10px;">
+    <div style="display: flex; flex-direction: row; justify-content: space-between; width: calc(100%);">
+      <h5 class="my-0 recipient_name">
+        {{ recipient.name }}
+      </h5>
+      <span class="recipient_timestamp">
+        {{ recipient.lastMessageTimestamp }}
+      </span>
+    </div>
+    <span class="recipient_last_message">
+      {{ recipient.lastMessage }}
+    </span>
+  </div>
+</div>

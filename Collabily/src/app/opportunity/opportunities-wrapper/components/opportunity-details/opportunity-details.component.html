@@ -1,0 +1,58 @@
+<app-sidebar-wrapper title="300 Responses" [loading]="loading" [redirectUri]="redirectUri">
+
+  <div class="basic_details">
+    <mat-accordion #accordion style="padding-right: 20px;">
+      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <img [src]="item.logo" [alt]="item.brand"
+              style="width: 40px; height: 40px; box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3); border-radius: 5px;">
+          </mat-panel-title>
+          <mat-panel-description style="justify-content: space-between;">
+            <span style="color: darkblue; font-size: larger;">
+              {{ item.title }}
+            </span>
+            <span class="status-badge">
+              {{ item.status }}
+            </span>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div>
+          <span style="font-size: x-small; margin-bottom: 10px; display: block;">Opportunity Id: {{item.opportunity_id}}</span>
+          <p style="text-align: justify; font-size: small;"> {{ item.description }} </p>
+          <mat-chip-list aria-label="Catgory">
+            <mat-chip *ngFor="let category of item.categories"> {{ category }} </mat-chip>
+          </mat-chip-list>
+          <div class="d-flex w-100 justify-content-between align-items-center mt-3">
+            <div class="stats">
+              <i class="material-icons">business_center</i> {{item.brand}}
+            </div>
+            <div class="stats">
+              <i class="material-icons">person</i> {{item.postedBy}}
+            </div>
+            <div class="stats">
+              <i class="material-icons">place</i> {{item.region}}
+            </div>
+            <div class="stats">
+              <i class="material-icons">event</i> {{item.postedOn}}
+            </div>
+          </div>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+
+
+    <div style="overflow-y: auto;">
+      <app-opportunity-response-card [panelOpenState]="panelOpenState"></app-opportunity-response-card>
+    </div>
+
+  </div>
+
+  <div class="d-flex justify-content-end align-items-center" style="height: 60px;">
+    <button class="btn btn-primary w-100"
+      style="background-color: rgb(0, 0, 97); text-transform: capitalize; margin: 0;">
+      Mark as Closed
+    </button>
+  </div>
+
+</app-sidebar-wrapper>

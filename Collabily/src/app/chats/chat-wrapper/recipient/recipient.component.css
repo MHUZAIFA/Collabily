@@ -1,0 +1,81 @@
+.recipient_container {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+.recipient_container:hover {
+  background-color: #67676711;
+  border-radius: 3px;
+}
+
+.recipient_image {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  border: 2px solid darkslategray;
+}
+
+.recipient_name {
+  font-weight: 500;
+  letter-spacing: 0.03rem;
+  font-size: medium;
+}
+
+.recipient_timestamp {
+  color: grey;
+  font-size: xx-small;
+  font-weight: 500;
+}
+
+.recipient_last_message {
+  color: #676767;
+  font-size: x-small;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: inherit;
+}
+
+.active {
+  background-image: linear-gradient(#033d8d, #1a3263);
+  border-radius: 8px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5);
+  color: #fff;
+}
+
+
+.active .recipient_name {
+  color: #fff;
+}
+
+.active .recipient_timestamp,
+.active .recipient_last_message {
+  color: #f1f1f1;
+}
+
+.active .recipient_image {
+  border: 2px solid grey;
+}
+
+@media (max-width:412px) {
+  .active {
+    background-image: unset;
+    border-radius: 8px;
+    box-shadow: unset;
+    color: #000;
+  }
+
+  .active .recipient_name {
+    color: #000;
+  }
+
+  .active .recipient_timestamp,
+  .active .recipient_last_message {
+    color: #171717;
+  }
+
+  .active .recipient_image {
+    border: 2px solid #171717;
+  }
+}

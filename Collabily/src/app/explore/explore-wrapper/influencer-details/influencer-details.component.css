@@ -1,0 +1,175 @@
+.card {
+  width: 30%;
+  padding: 5px;
+  text-align: center;
+  margin: 10px 0;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
+  border-radius: 4px;
+}
+
+.card .card-body {
+  padding: 0;
+}
+
+.card-body h2 {
+  margin-bottom: 0px;
+  letter-spacing: 0.05rem;
+  font-weight: 500;
+}
+
+.card-body p {
+  margin-bottom: 8px;
+  letter-spacing: 0.03rem;
+  text-transform: uppercase;
+  font-size: smaller;
+}
+
+.insta .card {
+  background: #000;
+  color: #fff;
+}
+
+.facebook .card {
+  background-color: #3b5998;
+  color: #fff;
+}
+
+.twitter .card {
+  background-color: #1c94df;
+  color: #fff;
+}
+
+.youtube .card {
+  background-color: #c4302b;
+  color: #fff;
+}
+
+
+.stats,
+.stats a {
+  font-size: smaller;
+  color: grey;
+  text-transform: uppercase;
+}
+
+.stats i {
+  height: 16px;
+  width: 20px;
+  font-size: 15px;
+  vertical-align: middle;
+}
+
+.badge {
+  padding: 8px 12px;
+  background-color: transparent;
+  color: darkblue;
+  font-weight: 600;
+  border: 2px solid darkblue;
+  margin-right: 8px;
+  font-size: xx-small;
+  letter-spacing: 0.05rem;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.badge:hover {
+  background-color: rgb(0, 0, 97);
+  color: #fff;
+}
+
+.details,
+.media {
+  width: 50%;
+}
+
+.media {
+  padding-left: 30px;
+}
+
+.details .actions_text {
+  display: unset;
+}
+
+.responsive_row_to_column {
+  flex-direction: row;
+}
+
+.responsive_column_to_row {
+  flex-direction: column;
+}
+
+.details .influencer_image {
+  height: 100px;
+  width: 100px;
+  margin-right: 10px;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width:320px) {}
+
+@media (max-width:481px) {
+
+  .details,
+  .media {
+    width: 100%;
+  }
+
+  .details h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin: 10px 0;
+    justify-content: center;
+  }
+
+  .details .influencer_image {
+    height: 200px;
+    width: 200px;
+    margin-left: 0;
+  }
+
+  .details .actions_text {
+    display: none;
+  }
+
+  .details h6 {
+    text-align: justify;
+  }
+
+  .media {
+    padding-left: 0;
+    margin-top: 20px;
+  }
+
+  .media h2 {
+    font-size: x-large;
+  }
+
+  .badge {
+    margin-bottom: 10px;
+  }
+
+  .responsive_row_to_column {
+    flex-direction: column;
+  }
+
+  .h-100 {
+    height: unset !important;
+  }
+}
+
+@media (max-width:641px) {
+  /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+}
+
+@media (max-width:961px) {
+  /* tablet, landscape iPad, lo-res laptops ands desktops */
+}
+
+@media (max-width:1025px) {
+  /* big landscape tablets, laptops, and desktops */
+}
+
+@media (max-width:1281px) {
+  /* hi-res laptops and desktops */
+}

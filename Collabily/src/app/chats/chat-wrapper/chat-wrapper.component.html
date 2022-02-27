@@ -1,0 +1,36 @@
+<div class="main-content" style="padding: 15px;">
+  <div class="container-fluid">
+    <div class="d-flex justify-content-between" style="height: calc(100vh - 120px);">
+      <div class="h-100 recipients" [ngClass]="{'selected': is_mobile_device && !chat_window_only, 'not-selected': is_mobile_device && chat_window_only}">
+        <div class="card h-100">
+          <div class="card-body" style="max-height: 100%;">
+            <mat-form-field appearance="outline">
+              <mat-label>Search</mat-label>
+              <input matInput placeholder="Search for a connection" #search [formControl]="searchTerm" [value]="searchTerm">
+            </mat-form-field>
+            <ng-container *ngIf="recipients.length === 0 && search.value.length > 0; then noSearchResult; else recipientsContainer"></ng-container>
+            <ng-template #noSearchResult>
+              <span>
+                No connection found for search term: <b style="font-weight: 600;"> "{{ search.value }}" </b>
+              </span>
+            </ng-template>
+            <ng-template #recipientsContainer>
+              <div style="height: calc(100% - 63px); overflow-y: auto; margin-right: -20px; padding-right: 20px;">
+                <app-recipient *ngFor="let recipient of recipients; let first = first; let last = last;"
+                [recipient]="recipient" [last]="last" [first]="first" (showChatWindowEvent)="toggleChatPanel()"></app-recipient>
+              </div>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+      <div class="h-100 chat_window" [ngClass]="{'selected': is_mobile_device && chat_window_only, 'not-selected': is_mobile_device && !chat_window_only}">
+        <div class="card h-100">
+          <div class="card-body">
+            <app-chat-window (closeChatWindowEvent)="toggleChatPanel()" [is_mobile_device]="is_mobile_device"></app-chat-window>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

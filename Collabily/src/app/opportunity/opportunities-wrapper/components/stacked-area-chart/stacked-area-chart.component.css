@@ -1,0 +1,15 @@
+.custom_chart ::ng-deep.legend-title {
+  display: none;
+}
+
+.custom_chart ::ng-deep.legend-wrap {
+  margin-top: 15px;
+}
+
+.custom_chart ::ng-deep.legend-wrap ul {
+  text-align: center;
+}
+
+.custom_chart ::ng-deep.legend-labels {
+  background: unset;
+}

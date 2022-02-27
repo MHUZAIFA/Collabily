@@ -1,0 +1,55 @@
+.conv-unit-container {
+  display: flex;
+  flex: 1;
+  padding: 12px 0;
+}
+
+.conv-unit-container.left {
+  flex-direction: row;
+}
+
+.conv-unit-container.right {
+  flex-direction: row-reverse;
+}
+
+.conv-unit-container .conv-unit {
+  padding: 0 10px;
+  width: 80%;
+}
+
+.user-message {
+  color: #fff;
+  padding: 10px 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  font-size: smaller;
+}
+
+.user-message.user {
+  background-image: linear-gradient(#033d8d,#1a3263);
+  border-radius: 7px 0px 7px 7px;
+}
+
+.user-message.recipient {
+  background-image: linear-gradient(#777777, #666666);
+  border-radius: 0px 7px 7px 7px;
+}
+
+.conv-unit-container .conv-unit .timestamp {
+  padding: 10px 0px;
+  color: #767676;
+  font-size: x-small;
+  font-weight: 500;
+}
+
+.timestamp .material-icons {
+  font-size: 15px;
+}
+
+.conv-unit-container.right .timestamp {
+  text-align: right;
+}
+
+.profile_pic {
+  border-radius: 50%;
+  border: 3px solid #485461;
+}

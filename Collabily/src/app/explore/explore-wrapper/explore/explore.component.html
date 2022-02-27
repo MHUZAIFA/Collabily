@@ -1,0 +1,67 @@
+<div class="main-content" style="padding: 15px;">
+  <div class="container-fluid">
+
+    <!-- search and filter -->
+
+    <div class="row">
+      <div class="col-md-12">
+        <mat-form-field appearance="outline">
+          <mat-label>Search</mat-label>
+          <input matInput placeholder="Search for an influencer">
+          <button mat-icon-button matSuffix (click)="showFilter()">
+            <mat-icon> tune </mat-icon>
+          </button>
+          <!-- <mat-hint>Hint</mat-hint> -->
+        </mat-form-field>
+      </div>
+    </div>
+
+
+    <!-- Recently viewed -->
+    <div class="d-flex justify-content-between align-items-center">
+      <h4 class="my-0">
+        Recently Viewed
+      </h4>
+      <a style="font-weight: 500; font-size: smaller;">
+        View all <mat-icon>arrow_right_alt</mat-icon>
+      </a>
+    </div>
+    <div class="row">
+      <div class="col-xl-3 col-lg-4 col-md-6" *ngFor="let influencer of influencers">
+        <app-influencer-card [influencer]="influencer"></app-influencer-card>
+      </div>
+    </div>
+
+    <!-- Sports -->
+    <div class="d-flex justify-content-between align-items-center">
+      <h4 class="my-0">
+        Sports
+      </h4>
+      <a style="font-weight: 500; font-size: smaller;">
+        View all <mat-icon>arrow_right_alt</mat-icon>
+      </a>
+    </div>
+    <div class="row">
+      <div class="col-xl-3 col-lg-4 col-md-6" *ngFor="let influencer of sports">
+        <app-influencer-card [influencer]="influencer"></app-influencer-card>
+      </div>
+    </div>
+
+
+    <!-- Music -->
+    <div class="d-flex justify-content-between align-items-center">
+      <h4 class="my-0">
+        Music
+      </h4>
+      <a style="font-weight: 500; font-size: smaller;">
+        View all <mat-icon>arrow_right_alt</mat-icon>
+      </a>
+    </div>
+    <div class="row">
+      <div class="col-xl-3 col-lg-4 col-md-6" *ngFor="let influencer of Music">
+        <app-influencer-card [influencer]="influencer"></app-influencer-card>
+      </div>
+    </div>
+
+  </div>
+</div>

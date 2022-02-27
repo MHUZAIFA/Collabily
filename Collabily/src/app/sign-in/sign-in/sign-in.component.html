@@ -1,0 +1,51 @@
+<div class="sign_in_container">
+  <div class="sign_in_wrapper">
+    <div class="sign_in_header_container">
+      <div style="display: flex; align-items: center;">
+        <mat-icon (click)="back()" style="cursor: pointer;">arrow_back_ios</mat-icon>
+        <div class="sign_in_header_content">
+          <h3 class="my-0">
+            Let's sign you back in
+          </h3>
+          <p>
+            Welcome back. You have been missed!
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="card my-0">
+      <br>
+      <form [formGroup]="loginFormGroup" (ngSubmit)="signIn()">
+        <mat-form-field appearance="outline" style="margin-bottom: 10px;">
+          <mat-label>Email</mat-label>
+          <input matInput type="email" placeholder="john.doe@mywallet.com" formControlName="email">
+          <mat-error
+            *ngIf="loginFormGroup.get('email')?.hasError('email') && !loginFormGroup.get('email')?.hasError('required')">
+            Please enter a valid email address
+          </mat-error>
+          <mat-error *ngIf="loginFormGroup.get('email')?.hasError('required')">
+            Email is <span style="font-weight: 600;">required</span>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="password">
+          <mat-label>Password</mat-label>
+          <input [type]="showPassword ? 'text' : 'password'" matInput placeholder="Enter a strong password"
+            formControlName="password">
+          <mat-icon style="cursor: pointer;" matSuffix (click)="showPassword = !showPassword">{{showPassword ?
+            'visibility' : 'visibility_off'}}</mat-icon>
+            <mat-error *ngIf="loginFormGroup.get('password')?.hasError('required')">
+              Password is <span style="font-weight: 600;">required</span>
+            </mat-error>
+        </mat-form-field>
+        <div class="forgot_password">
+          <a>Forgot Password..?</a>
+        </div>
+        <button type="submit" mat-raised-button color="primary" [ngClass]="{'btn_next': loginFormGroup.valid}"
+          [disabled]="loginFormGroup?.invalid">Sign in <mat-icon>trending_flat</mat-icon> </button>
+          <p>
+            <!-- Not registered yet? <a [routerLink]="['/register']"> Create an Account</a> -->
+          </p>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,260 @@
+<div class="form_container horizontal">
+  <div class="form_wrapper">
+    <div class="form_heading">
+      <div style="display: flex; align-items: center;">
+        <mat-icon (click)="back()" style="cursor: pointer;">arrow_back_ios</mat-icon>
+        <div style="display: flex; flex-direction: column;">
+          <h2 class="my-0">
+            Create an account
+          </h2>
+          <p>
+            &nbsp;Let's create a personalized account for you.
+          </p>
+        </div>
+      </div>
+    </div>
+    <mat-stepper [orientation]="orientation" color="warn" labelPosition="bottom" [linear]="isLinear" #stepper
+      (selectionChange)="selectionChange($event)">
+
+      <mat-step state="welcome">
+        <ng-template matStepLabel>Start</ng-template>
+        <div class="welcome_container">
+          <img src="../../../assets/img/start_journey_light.jpg" alt="start_journey_light" width="310px" height="250px">
+          <div class="welcome_content">
+            <div>
+              <h3>Ready to begin this incredible journey..?</h3>
+            <p>We look forwrard to have you on-board. We strive to make our product better in every aspect. We're
+              serious about security. Your data is secured with 256-bit SSL encryption. That's the same level of
+              security as major banks.</p>
+            </div>
+            <div class="action">
+              <button mat-raised-button matStepperNext color="primary"
+                style="background-color: darkblue; height: 40px;">
+                Get started <mat-icon>trending_flat</mat-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+      </mat-step>
+      <mat-step [stepControl]="userDetailsFormGroup" state="details">
+        <form [formGroup]="userDetailsFormGroup">
+          <ng-template matStepLabel> Information </ng-template>
+          <div class="form_content">
+            <div class="details_container">
+              <div style="display: flex; justify-content: center; margin-bottom: 20px;">
+                <div *ngIf="!profilePic" (click)="uploadImage.click()" class="profilepic_placeholder">
+                  <mat-icon style="font-size: 40px; height: 40px; width: 40px; color: darkblue; cursor: pointer;">
+                    add_a_photo</mat-icon>
+                </div>
+                <img *ngIf="!!profilePic" (click)="uploadImage.click()" [src]="profilePic" width="180px" height="180px"
+                  style="border-radius: 50%; box-shadow: 0 2px 3px 0 rgb(0, 0, 0, 0.5); border: 2px solid #171717; cursor: pointer; border-collapse: separate;">
+              </div>
+
+              <div class="inputs">
+                <mat-form-field appearance="outline" style="margin-bottom: 20px;">
+                  <mat-label>Username</mat-label>
+                  <input matInput #username placeholder="Last name, First name" maxlength="30"
+                    formControlName="username">
+                  <!-- <mat-hint align="start" style="font-weight: 500;">Don't disclose personal info</mat-hint> -->
+                  <mat-hint align="end">{{username.value.length}} / 30</mat-hint>
+                </mat-form-field>
+                <mat-form-field appearance="outline" style="margin-bottom: 20px;">
+                  <mat-label>Email</mat-label>
+                  <input matInput type="email" placeholder="john.doe@mywallet.com" formControlName="email">
+                  <mat-error
+                    *ngIf="userDetailsFormGroup.get('email')?.hasError('email') && !userDetailsFormGroup.get('email')?.hasError('required')">
+                    Please enter a valid email address
+                  </mat-error>
+                  <mat-error *ngIf="userDetailsFormGroup.get('email')?.hasError('required')">
+                    Email is <span style="font-weight: 600;">required</span>
+                  </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="password">
+                  <mat-label>Password</mat-label>
+                  <input (focusin)="showPasswordStrengthIndicator = true"
+                    (focusout)="showPasswordStrengthIndicator = false" [type]="showPassword ? 'text' : 'password'"
+                    matInput placeholder="Enter a strong password" formControlName="password">
+                  <mat-icon style="cursor: pointer;" matSuffix (click)="showPassword = !showPassword">{{showPassword ?
+                    'visibility' : 'visibility_off'}}</mat-icon>
+                  <mat-hint>
+                    <div class="password_hinter" *ngIf="showPasswordStrengthIndicator">
+                      <div class="base"
+                        [ngClass]="userDetailsFormGroup.get('password')?.value.length > 0 ? hasUppercase ? 'valid' : 'invalid' : '' ">
+                        Uppercase</div>
+                      <div class="base"
+                        [ngClass]="userDetailsFormGroup.get('password')?.value.length > 0 ? hasLowercase ? 'valid' : 'invalid' : '' ">
+                        Lowercase</div>
+                      <div class="base"
+                        [ngClass]="userDetailsFormGroup.get('password')?.value.length > 0 ? hasNumber ? 'valid' : 'invalid' : '' ">
+                        Number</div>
+                      <div class="base"
+                        [ngClass]="userDetailsFormGroup.get('password')?.value.length > 0 ? has8Chars ? 'valid' : 'invalid' : '' ">
+                        8+ Chars.</div>
+                    </div>
+                  </mat-hint>
+                  <mat-error
+                    *ngIf="!showPasswordStrengthIndicator && userDetailsFormGroup.get('password')?.hasError('required')">
+                    Password is required
+                  </mat-error>
+                  <mat-error
+                    *ngIf="!showPasswordStrengthIndicator && userDetailsFormGroup.get('password')?.hasError('passwordInvalid') && !userDetailsFormGroup.get('password')?.hasError('required')">
+                    Please enter a valid password
+                  </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Confirm Password</mat-label>
+                  <input [type]="showConfirmPassword ? 'text' : 'password'" matInput
+                    placeholder="Re-enter your password" formControlName="confirmPassword">
+                  <mat-icon style="cursor: pointer;" matSuffix (click)="showConfirmPassword = !showConfirmPassword">
+                    {{showConfirmPassword ?
+                    'visibility' : 'visibility_off'}}</mat-icon>
+                  <mat-error *ngIf="userDetailsFormGroup.get('confirmPassword')?.hasError('required')">
+                    Confirm password cannot be empty
+                  </mat-error>
+                  <mat-error
+                    *ngIf="!userDetailsFormGroup.get('confirmPassword')?.hasError('required') && userDetailsFormGroup.get('confirmPassword')?.hasError('notEquivalent')">
+                    Passwords does not match
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="actions">
+              <button mat-button matStepperPrevious>Back</button>
+              &nbsp;
+              <button mat-raised-button color="primary" matStepperNext
+                [ngClass]="{'btn_next': userDetailsFormGroup.valid}"
+                [disabled]="userDetailsFormGroup?.invalid">Next</button>
+            </div>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="AdditionalDetails" state="finance">
+        <form >
+          <ng-template matStepLabel>Account Type</ng-template>
+          <div class="form_content">
+            <div class="details_container">
+              <!-- <mat-radio-group color="primary" aria-labelledby="example-radio-group-label" class="example-radio-group"
+            formControlName="designation">
+            <mat-card *ngFor="let designation of designations" class="designation-card">
+              <mat-radio-button class="example-radio-button" [value]="designation.title">
+                <h4 style="margin: 0px 0 6px; color: darkslateblue; font-weight: 500;"> {{ designation.title }} </h4>
+                <p style="white-space: normal; word-wrap: normal; margin: 0; font-size: small; text-align: justify;"> {{
+                  designation.description }} </p>
+              </mat-radio-button>
+            </mat-card>
+
+          </mat-radio-group> -->
+            </div>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step state="review">
+        <ng-template matStepLabel>
+          <p style="margin-bottom: 0;">Additional Details</p>
+        </ng-template>
+        <div class="form_content">
+          <div class="details_container">
+            <div style="display: flex; justify-content: center;">
+              <img [src]="profilePic" width="150px" height="150px"
+                style="border-radius: 50%; box-shadow: 0 2px 3px 0 rgb(0, 0, 0, 0.5); border: 2px solid #171717; cursor: pointer; border-collapse: separate;">
+            </div>
+
+            <div class="review_container">
+              <div class="review_content">
+                <div class="review">
+                  <span class="heading">username</span>
+                  <p class="value"> {{ user?.username }} </p>
+                </div>
+                <div class="review">
+                  <span class="heading">email</span>
+                  <p class="value"> {{ user?.email }} </p>
+                </div>
+                <div class="review">
+                  <span class="heading">password</span>
+                  <div style="display: flex; justify-content: space-between;">
+                    <p class="value" *ngIf="!showPasswordReviewStep">
+                      <span *ngFor="let num of getSplit(user?.password)">&#9679;</span>
+                    </p>
+                    <p class="value" *ngIf="showPasswordReviewStep">{{ user?.password }}</p>
+                    <mat-icon style="cursor: pointer; font-size: larger; padding: 3px;" matSuffix
+                      (click)="showPasswordReviewStep = !showPasswordReviewStep">{{showPasswordReviewStep ?
+                      'visibility_off' :
+                      'visibility'}}</mat-icon>
+                  </div>
+                </div>
+              </div>
+              <div class="review_content">
+                <div class="review">
+                  <span class="heading">currency</span>
+                  <p class="value"> {{ user?.currency?.cc }} - {{ user?.currency?.name }} </p>
+                </div>
+                <div class="review">
+                  <span class="heading">Monthly Budget</span>
+                  <p class="value"> {{ user?.currency?.symbol }} {{ user?.monthlyBudget }} </p>
+                </div>
+                <div class="review">
+                  <span class="heading">Monthly Budget</span>
+                  <p class="value"> {{ user?.currency?.symbol }} {{ user?.alertOn }} </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="actions review_actions">
+            <button mat-button matStepperPrevious>Back</button>
+            &nbsp;
+            <button mat-raised-button color="primary" matStepperNext class="btn_next">Next</button>
+          </div>
+        </div>
+      </mat-step>
+      <mat-step state="finish">
+        <ng-template matStepLabel>Finish</ng-template>
+        <div class="finish_container">
+          <img src="../../../assets/img/celebrate.png" alt="start_journey_light" width="300px" height="250px">
+          <div class="finish_content">
+            <h1 style="letter-spacing: 0.01rem;">Let's save money and achieve goals faster!</h1>
+            <p>Always know what's in your pocket. Keep tabs on your spending. Track and lower your bills. Reach your
+              goals with ease. </p>
+            <div class="actions">
+              <button mat-button matStepperPrevious>Back</button>
+              &nbsp;
+              <button mat-raised-button (click)="submit()" color="primary" style="background-color: darkblue; height: 40px;">
+                Start Saving <mat-icon>trending_flat</mat-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+      </mat-step>
+
+      <ng-template matStepperIcon="welcome">
+        <mat-icon>rocket_launch</mat-icon>
+      </ng-template>
+      <ng-template matStepperIcon="details">
+        <mat-icon>person</mat-icon>
+      </ng-template>
+      <ng-template matStepperIcon="profilepic">
+        <mat-icon>add_photo_alternate</mat-icon>
+      </ng-template>
+      <ng-template matStepperIcon="finance">
+        <mat-icon>attach_money</mat-icon>
+      </ng-template>
+      <ng-template matStepperIcon="review">
+        <mat-icon>sort</mat-icon>
+      </ng-template>
+      <ng-template matStepperIcon="finish">
+        <mat-icon>check</mat-icon>
+      </ng-template>
+      <ng-template matStepperIcon="edit">
+        <mat-icon>edit</mat-icon>
+      </ng-template>
+      <ng-template matStepperIcon="done">
+        <mat-icon>done</mat-icon>
+      </ng-template>
+
+    </mat-stepper>
+  </div>
+
+</div>
+
+<input #uploadImage type="file" (change)="onFileChanged($event)" class="img_upload">

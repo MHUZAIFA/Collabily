@@ -1,0 +1,6 @@
+.new_opportunity_container {
+  height: calc(100vh - 210px);
+  overflow-y: auto;
+  padding-right: 30px;
+}
+

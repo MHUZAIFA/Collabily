@@ -1,0 +1,109 @@
+<h6 class="d-flex justify-content-between align-items-center">
+  <span style="font-weight: 600; letter-spacing: 0.03rem;">
+    New Opportunity
+  </span>
+
+  <mat-icon style="font-size: 15px; width: 15px; height: 15px; cursor: pointer;" (click)="close()">close</mat-icon>
+</h6>
+<mat-stepper [linear]="true" #stepper labelPosition="bottom" style="margin: 0 -20px; padding-bottom: 0;">
+  <mat-step [stepControl]="_formService.opportunityFormGroup">
+    <form [formGroup]="_formService.opportunityFormGroup">
+      <ng-template matStepLabel>Details</ng-template>
+      <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>Title</mat-label>
+        <input matInput #title maxlength="50" placeholder="Ex. Promo for new sneaker" formControlName="title">
+        <mat-hint align="end">{{title.value.length}} / 50</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>Description</mat-label>
+        <textarea matInput #description rows="4" maxlength="250"
+          placeholder="Ex. The sneaker are from our latest line up..." formControlName="description"></textarea>
+        <mat-hint align="end">{{description.value.length}} / 250</mat-hint>
+      </mat-form-field>
+
+      <div class="row_fields">
+        <mat-form-field appearance="outline" class="custom_field">
+          <mat-label>Validity</mat-label>
+          <mat-date-range-input [rangePicker]="picker" [formGroup]="_formService.validityFormGroup" required>
+            <input matStartDate placeholder="Start date" formControlName="start">
+            <input matEndDate placeholder="End date" formControlName="end">
+          </mat-date-range-input>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-date-range-picker #picker></mat-date-range-picker>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline" class="custom_field">
+          <mat-label>Region</mat-label>
+          <input matInput #title maxlength="30" placeholder="Ex. Promo for new sneaker" formControlName="region">
+          <mat-hint align="end">{{title.value.length}} / 30</mat-hint>
+        </mat-form-field>
+      </div>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Categories</mat-label>
+        <mat-select formControlName="categories" multiple panelClass="category_select">
+          <mat-option *ngFor="let category of categories" [value]="category">{{category}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div style="text-align: right;">
+        <button mat-button matStepperNext class="btn btn-sm btn-primary" (click)="prepareReviewStep()" [disabled]="_formService.opportunityFormGroup.invalid">Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Review</ng-template>
+    <div class="review_container">
+      <div *ngIf="opportunity.user" class="d-flex justify-content-center align-items-center flex-column">
+        <img [src]="opportunity.user.brandLogo" [alt]="opportunity.user.brandName" class="brand_logo">
+        <span class="brand_name">
+          ({{ opportunity.user.brandName }})
+        </span>
+      </div>
+      <div class="details">
+        <span class="mt-3 custom_label">
+          Title
+        </span>
+        <h3 class="mt-0 custom_value">
+          {{ opportunity.title }}
+        </h3>
+        <span class="custom_label">
+          Description
+        </span>
+        <p class="custom_value">
+          {{ opportunity.description }}
+        </p>
+
+        <span class="custom_label">
+          Validity
+        </span>
+        <span class="custom_value">
+          {{ opportunity.validity.start | date: 'longDate' }} - {{ opportunity.validity.end | date: 'longDate' }}
+        </span>
+
+        <span class="custom_label">
+          Region
+        </span>
+        <span class="custom_value">
+          {{ opportunity.region }}
+        </span>
+
+        <span class="custom_label">
+          Categories
+        </span>
+        <mat-chip-list aria-label="Catgory">
+          <mat-chip *ngFor="let category of opportunity.categories"> {{ category }} </mat-chip>
+        </mat-chip-list>
+      </div>
+
+    </div>
+    <div class="actions">
+      <button mat-button matStepperPrevious class="btn btn-sm btn-secodary">Back</button>
+      <button mat-button (click)="submit()" class="btn btn-sm btn-primary"
+        style="background-color: rgb(0, 0, 97); letter-spacing: 0.03rem;">
+        Create Opportunity <mat-icon style="height: 20px;">trending_flat</mat-icon>
+      </button>
+    </div>
+  </mat-step>
+</mat-stepper>

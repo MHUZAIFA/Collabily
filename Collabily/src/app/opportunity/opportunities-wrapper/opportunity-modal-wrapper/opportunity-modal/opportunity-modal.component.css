@@ -1,0 +1,150 @@
+.mat-stepper-horizontal ::ng-deep.mat-horizontal-content-container {
+  padding-bottom: 0;
+}
+
+form {
+  margin-bottom: 0;
+}
+
+form .mat-form-field {
+  margin-bottom: 3px;
+}
+
+.mat-stepper-horizontal ::ng-deep.mat-step-icon {
+  background-color: darkgray;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  height: 30px;
+  width: 30px;
+}
+
+.mat-stepper-horizontal ::ng-deep.mat-step-icon-selected {
+  background-color: darkblue;
+}
+
+.mat-stepper-horizontal ::ng-deep.mat-step-icon-state-edit {
+  background-color: darkgreen;
+}
+
+.mat-stepper-horizontal ::ng-deep.mat-horizontal-stepper-header::after,
+.mat-stepper-horizontal ::ng-deep.mat-horizontal-stepper-header::before,
+.mat-stepper-horizontal ::ng-deep.mat-stepper-horizontal-line {
+  top: 38px;
+  border-top-width: 4px !important;
+}
+
+.mat-chip {
+  border-radius: 2px;
+  /* box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.5); */
+  font-size: small;
+  cursor: pointer;
+  padding: 5px 10px;
+  background-color: transparent;
+  border: 2px solid darkblue;
+  color: darkblue !important;
+  font-weight: 400;
+  margin-top: 10px;
+}
+
+.custom_label {
+  display: block;
+  font-size: x-small;
+  color: darkblue;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+  font-weight: 600;
+}
+
+.custom_value {
+  display: block;
+  font-size: small;
+  color: #171717;
+  text-transform: capitalize;
+  letter-spacing: 0.03rem;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.btn.btn-primary {
+  background-color: rgb(0, 0, 97) !important;
+}
+
+.btn.btn-primary:disabled {
+  background-color: rgba(0, 0, 97, 0.7) !important;
+}
+
+.brand_logo {
+  width: 160px;
+  height: 160px;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5);
+}
+
+.brand_name {
+  text-transform: uppercase;
+  font-size: small;
+  color: darkblue;
+  letter-spacing: 0.05rem;
+  display: block;
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+.row_fields {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.row_fields .custom_field {
+  width: 48%;
+}
+
+.review_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.review_container .details {
+  padding-left: 1rem;
+  height: 426px;
+}
+
+.actions {
+  display: flex; justify-content: space-between; margin-top: 2px;
+}
+
+@media screen and (min-device-width : 400px) and (max-device-width : 950px) and (orientation : portrait) {
+
+  .brand_logo, .brand_name {
+    display: none;
+  }
+
+  .row_fields {
+    flex-direction: column;
+  }
+
+  .row_fields .custom_field {
+    width: 100%;
+  }
+
+  .review_container {
+    flex-direction: column;
+  }
+
+  .review_container .details {
+    padding-left: 0;
+    height: unset;
+  }
+
+  .custom_value {
+    margin-bottom: 20px;
+  }
+
+  .actions {
+    margin-top: 10px;
+  }
+
+
+}

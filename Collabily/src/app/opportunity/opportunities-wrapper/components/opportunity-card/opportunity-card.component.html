@@ -1,0 +1,92 @@
+<div class="pt-3 pb-1">
+  <div class="card">
+    <div class="card-header card-header-warning card-header-icon">
+      <div class="card-icon">
+        <img [src]="item.logo" [alt]="item.brand"
+          style="width: 100px; height: 100px; margin: -20px; border-radius: 3px;">
+      </div>
+      <h3 *ngIf="!is_mobile_device" class="card-title mt-0 mb-0" style="margin-top: 5px; color: darkblue; font-weight: 400;">
+        <div class="d-flex justify-content-between align-items-center">
+          <div>
+            <h6
+              style="font-size: x-small; text-transform: capitalize; color: #676767; font-weight: 500; margin-top: 15px; margin-bottom: 5px;">
+              Id: {{item.opportunity_id}}
+            </h6>
+            <span>
+              {{item.title}}
+            </span>
+          </div>
+          <div>
+            <button mat-icon-button *ngIf="canBookmark" aria-label="Example icon button with a home icon"
+              (click)="bookmarked = !bookmarked">
+              <mat-icon *ngIf="!bookmarked">bookmark_border</mat-icon>
+              <mat-icon *ngIf="bookmarked">bookmark</mat-icon>
+            </button>
+            <button mat-icon-button *ngIf="canEdit" aria-label="Example icon button with a home icon"
+              (click)="bookmarked = !bookmarked"
+              [routerLink]="['./427215f2-43aa-4116-b033-06b955794e91', {outlets: { modal: 'edit' } }]">
+              <mat-icon>edit</mat-icon>
+            </button>
+          </div>
+        </div>
+      </h3>
+    </div>
+    <div class="card-body">
+      <div *ngIf="is_mobile_device" class="mt-0 mb-3" style="margin-top: 5px; color: darkblue; font-weight: 400;">
+        <div class="d-flex justify-content-between align-items-center">
+          <div>
+            <h6
+              style="font-size: x-small; text-transform: capitalize; color: #676767; font-weight: 500; margin-top: 15px; margin-bottom: 5px;">
+              Id: {{item.opportunity_id}}
+            </h6>
+            <span style="font-size: medium;">
+              {{item.title}}
+            </span>
+          </div>
+          <div>
+            <button mat-icon-button *ngIf="canBookmark" aria-label="Example icon button with a home icon"
+              (click)="bookmarked = !bookmarked">
+              <mat-icon *ngIf="!bookmarked">bookmark_border</mat-icon>
+              <mat-icon *ngIf="bookmarked">bookmark</mat-icon>
+            </button>
+            <button mat-icon-button *ngIf="canEdit" aria-label="Example icon button with a home icon"
+              (click)="bookmarked = !bookmarked"
+              [routerLink]="['./427215f2-43aa-4116-b033-06b955794e91', {outlets: { modal: 'edit' } }]">
+              <mat-icon>edit</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+      <p> {{ item.description }} </p>
+      <mat-chip-list aria-label="Catgory">
+        <mat-chip *ngFor="let category of item.categories"> {{ category }} </mat-chip>
+      </mat-chip-list>
+      <div class="stats_container">
+        <div class="stats">
+          <i class="material-icons">business_center</i> {{item.brand}}
+        </div>
+        <div class="stats">
+          <i class="material-icons">person</i> {{item.postedBy}}
+        </div>
+        <div class="stats">
+          <i class="material-icons">place</i> {{item.region}}
+        </div>
+        <div class="stats">
+          <i class="material-icons">event</i> {{item.postedOn}}
+        </div>
+      </div>
+    </div>
+    <div class="card-footer justify-content-end" *ngIf="canRespondToOpportunity">
+      <button mat-button class="mr-2 font-weight-bold" style="color: gray;">Not Interested</button>
+      <button mat-raised-button color="primary" style="background-color: darkblue;">Interested</button>
+    </div>
+    <div class="card-footer" style="margin-left: 5px; margin-right: 0;" *ngIf="canViewResults">
+      <a mat-button class="font-weight-bold" style="color: gray; font-size: x-small;">
+        <span style="color: darkblue; font-weight: 600; letter-spacing: 0.04rem; margin-right: 5px;">300 Responses</span>(last response at: 23 Feb 2022, 03:45PM)</a>
+      <a mat-button color="primary" style="color: darkblue; margin-right: 18px; margin-left: 16px; padding: 0 2px;"
+        [routerLink]="['./427215f2-43aa-4116-b033-06b955794e91', {outlets: { sidebar: 'details' } }]"
+        routerLinkActive="router-link-active">View Responses <mat-icon>trending_flat</mat-icon> </a>
+    </div>
+  </div>
+
+</div>
