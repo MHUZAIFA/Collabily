@@ -32,23 +32,24 @@ export class SignInComponent implements OnInit {
   }
 
   signIn() {
-    this.error = '';
-    const email = this.loginFormGroup.get('email')?.value;
-    const password = this.loginFormGroup.get('password')?.value;
-    const users: User[] = JSON.parse(localStorage.getItem('users') as string) as User[];
-    if(users) {
-      const user: User | undefined = users.find(u => u.email.trim() === email);
-      if (user) {
-        if (user.password.trim() === password.trim()) {
-          localStorage.setItem('loggedInUser', JSON.stringify(user));
-          this._router.navigate(['dashboard']);
-        } else {
-          this.error = 'Incorrect email id or password.'
-        }
+    this._router.navigate(['dashboard']);
+    // this.error = '';
+    // const email = this.loginFormGroup.get('email')?.value;
+    // const password = this.loginFormGroup.get('password')?.value;
+    // const users: User[] = JSON.parse(localStorage.getItem('users') as string) as User[];
+    // if(users) {
+    //   const user: User | undefined = users.find(u => u.email.trim() === email);
+    //   if (user) {
+    //     if (user.password.trim() === password.trim()) {
+    //       localStorage.setItem('loggedInUser', JSON.stringify(user));
+    //       this._router.navigate(['dashboard']);
+    //     } else {
+    //       this.error = 'Incorrect email id or password.'
+    //     }
 
-      } else {
-        this.error = 'User not found.'
-      }
-    }
+    //   } else {
+    //     this.error = 'User not found.'
+    //   }
+    // }
   }
 }

@@ -40,8 +40,10 @@
         <div class="forgot_password">
           <a>Forgot Password..?</a>
         </div>
-        <button type="submit" mat-raised-button color="primary" [ngClass]="{'btn_next': loginFormGroup.valid}"
-          [disabled]="loginFormGroup?.invalid">Sign in <mat-icon>trending_flat</mat-icon> </button>
+        <!-- <button type="submit" mat-raised-button color="primary" [ngClass]="{'btn_next': loginFormGroup.valid}"
+          [disabled]="loginFormGroup?.invalid">Sign in <mat-icon>trending_flat</mat-icon> </button> -->
+          <button type="submit" mat-raised-button color="primary" [ngClass]="{'btn_next': loginFormGroup.valid}"
+          >Sign in <mat-icon>trending_flat</mat-icon> </button>
           <p>
             <!-- Not registered yet? <a [routerLink]="['/register']"> Create an Account</a> -->
           </p>
