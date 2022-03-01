@@ -1,6 +1,5 @@
 import { Routes } from '@angular/router';
 
-import { DashboardComponent } from '../../dashboard/dashboard.component';
 import { UserProfileComponent } from '../../user-profile/user-profile.component';
 import { SettingsComponent } from 'src/app/components/settings/settings.component';
 import { ChatWrapperComponent } from 'src/app/chats/chat-wrapper/chat-wrapper.component';
@@ -11,9 +10,10 @@ import { ExploreComponent } from 'src/app/explore/explore-wrapper/explore/explor
 import { InfluencerDetailsComponent } from 'src/app/explore/explore-wrapper/influencer-details/influencer-details.component';
 import { OpportunityModalWrapperComponent } from 'src/app/opportunity/opportunities-wrapper/opportunity-modal-wrapper/opportunity-modal-wrapper.component';
 import { OpportunityDetailsComponent } from 'src/app/opportunity/opportunities-wrapper/components/opportunity-details/opportunity-details.component';
+import { DashboardWrapperComponent } from 'src/app/dashboard/dashboard-wrapper/dashboard-wrapper.component';
 
 export const AdminLayoutRoutes: Routes = [
-  { path: 'dashboard', component: DashboardComponent },
+  { path: 'dashboard', component: DashboardWrapperComponent },
   {
     path: 'explore',
     children: [

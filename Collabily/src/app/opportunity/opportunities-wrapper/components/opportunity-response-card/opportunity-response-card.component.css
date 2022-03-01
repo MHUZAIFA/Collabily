@@ -21,12 +21,12 @@
 
 
 .panel_expanded {
-  max-height: calc(100vh - 470px);
+  max-height: calc(100vh - 485px);
   transition: max-height 0.1s;
 }
 
 .panel_collapsed {
-  max-height: calc(100vh - 240px);
+  max-height: calc(100vh - 270px);
   transition: max-height 0.5s;
 }
 

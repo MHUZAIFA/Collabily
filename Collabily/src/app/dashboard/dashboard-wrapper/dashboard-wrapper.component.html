@@ -1,0 +1,315 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-header card-header-icon">
+            <div class="card-icon custom_icon">
+              <i class="fa fa-instagram social_icons" aria-hidden="true"></i>
+            </div>
+            <p class="card-category">Likes</p>
+            <h3 class="card-title">
+              173,242
+            </h3>
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons">add_box</i>
+              Last post made <span class="imp_value"> Yesterday </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-header card-header-icon">
+            <div class="card-icon custom_icon">
+              <i class="fa fa-facebook social_icons" aria-hidden="true"></i>
+            </div>
+            <p class="card-category">Posts</p>
+            <h3 class="card-title">
+              2,173
+            </h3>
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons">reply_all</i>
+              Posts re-shared <span class="imp_value"> 1,221 </span> times
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-header card-header-icon">
+            <div class="card-icon custom_icon">
+              <i class="fa fa-youtube-play social_icons" aria-hidden="true"></i>
+            </div>
+            <p class="card-category">Views</p>
+            <h3 class="card-title">1,375,000</h3>
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons">favorite</i>
+              Videos have <span class="imp_value"> 721,221 </span> likes
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-header card-header-icon">
+            <div class="card-icon custom_icon">
+              <i class="fa fa-twitter"></i>
+            </div>
+            <p class="card-category">Tweets</p>
+            <h3 class="card-title">12,112</h3>
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="fa fa-twitter mt-1"></i>
+              <span class="imp_value"> 4,221 </span> Re-tweets
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card card-stats custom_md_card">
+          <div class="card-header card-header-icon">
+            <div class="card-icon custom_icon">
+              <i class="fa fa-gg" aria-hidden="true"></i>
+            </div>
+            <p class="card-category">Influencers</p>
+            <h3 class="card-title">75</h3>
+          </div>
+          <div class="card-body text-center">
+            <div class="row">
+              <div class="col-12" style="height: 200px;" #gaugeContainer>
+                <app-gauge-chart [container]="gaugeChartContainer"></app-gauge-chart>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-3 border-right">
+                <i class="fa fa-instagram social_icons instagram" aria-hidden="true"></i>
+                <h4>37</h4>
+              </div>
+              <div class="col-3 border-right">
+                <i class="fa fa-facebook social_icons facebook" aria-hidden="true"></i>
+                <h4>18</h4>
+              </div>
+              <div class="col-3 border-right">
+                <i class="fa fa-youtube-play social_icons youTube" aria-hidden="true"></i>
+                <h4>32</h4>
+              </div>
+              <div class="col-3">
+                <i class="fa fa-twitter social_icons twitter"></i>
+                <h4>21</h4>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer border-top">
+            <div class="stats">
+              <i class="material-icons">person</i> connected with a new influencer <span class="imp_value"> 2 days ago </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card card-stats custom_md_card">
+          <div class="card-header card-header-icon">
+            <div class="card-icon custom_icon">
+              <i class="material-icons">calculate</i>
+            </div>
+            <p class="card-category">Budget</p>
+            <h3 class="card-title">$10,000
+              <span style="font-size: xx-small;">
+                <span style="height: 10px; width: 10px; border-radius: 3px; display: inline-block; background-color: #000061;"></span>
+                Revenue
+              </span>
+            </h3>
+          </div>
+          <div class="card-body text-center">
+            <div class="row">
+              <div class="col-12" style="height: 200px;" #areaContainer>
+                <app-dashboard-area-chart [container]="areaChartContainer"></app-dashboard-area-chart>
+              </div>
+            </div>
+            <div class="row">
+            <div class="col-4 border-right">
+              <p>Revenue</p>
+              <h4>
+                $34,245
+              </h4>
+            </div>
+            <div class="col-4 border-right">
+                <p>Spent</p>
+                <h4>
+                  $7,195
+                </h4>
+              </div>
+              <div class="col-4">
+                <p>Avaialble</p>
+                <h4>
+                  $2,805
+                </h4>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer border-top">
+            <div class="stats">
+              <i class="material-icons text-success">trending_up</i> Revenue ROI: <span class="imp_value">3.91x</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card card-stats custom_md_card">
+          <div class="card-header card-header-icon">
+            <div class="card-icon custom_icon">
+              <i class="material-icons">business_center</i>
+            </div>
+            <p class="card-category">Opportunities</p>
+            <h3 class="card-title">
+              27
+              <span style="font-size: xx-small;">
+                <span style="height: 10px; width: 10px; border-radius: 3px; display: inline-block; background-color: darkblue;"></span>
+                Responses
+              </span>
+              <span style="font-size: xx-small; margin-left: 10px;">
+                <span style="height: 10px; width: 10px; border-radius: 3px; display: inline-block; background-color: #676767;"></span>
+                Proposals
+              </span>
+            </h3>
+          </div>
+          <div class="card-body text-center">
+            <div class="row">
+              <div class="col-12" style="height: 200px;" #groupedBarGraph>
+                <app-grouped-verticle-bar-graph [container]="groupedBarGraphContainer"></app-grouped-verticle-bar-graph>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-4 border-right">
+                <p>Open/Close</p>
+                <h4>21 / 06</h4>
+              </div>
+              <div class="col-4 border-right">
+                <p>Responses</p>
+                <h4>430</h4>
+              </div>
+              <div class="col-4">
+                <p>Proposals</p>
+                <h4>156</h4>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer border-top">
+            <div class="stats">
+              <i class="material-icons">campaign</i> last opportunity added <span class="imp_value">27 days ago</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-6 col-md-12">
+        <div class="card card-stats engagement_card">
+          <div class="card-header card-header-icon">
+            <div class="card-icon custom_icon">
+              <i class="material-icons">widgets</i>
+            </div>
+            <p class="card-category">Content</p>
+            <h3 class="card-title">
+              1,500 <small style="font-size: x-small;">(TOTAL CONTENT)</small>
+            </h3>
+          </div>
+          <div class="card-body text-left" #lineChart>
+            <div class="row">
+              <div class="col-6 col-md-3 border-right">
+                <p>Instagram</p>
+                <h4>
+                  700
+                </h4>
+              </div>
+              <div class="col-6 col-md-3" [ngClass]="{'border-right': !_themeService.is_mobile_device }">
+                <p>Facebook</p>
+                <h4>
+                  200
+                </h4>
+              </div>
+              <div class="col-6 col-md-3 border-right" [ngClass]="{'mt-3': _themeService.is_mobile_device }">
+                <p>YouTube</p>
+                <h4>
+                  500
+                </h4>
+              </div>
+              <div class="col-6 col-md-3" [ngClass]="{'mt-3': _themeService.is_mobile_device }">
+                <p>Twitter</p>
+                <h4>
+                  100
+                </h4>
+              </div>
+            </div>
+            <app-line-graph [container]="lineChartContainer"></app-line-graph>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-12">
+        <div class="card card-stats engagement_card">
+          <div class="card-header card-header-icon">
+            <div class="card-icon custom_icon">
+              <i class="material-icons">grass</i>
+            </div>
+            <p class="card-category">Content Engagement</p>
+            <h3 class="card-title">
+              246.3K <small style="font-size: x-small;">(EST. IMPRESSIONS)</small>
+            </h3>
+          </div>
+          <div class="card-body text-left" #multipleAreaChart>
+            <div class="row">
+              <div class="col-6 col-md-3 border-right">
+                <p>Engagement</p>
+                <h4>
+                  16.5K
+                </h4>
+              </div>
+              <div class="col-6 col-md-3" [ngClass]="{'border-right': !_themeService.is_mobile_device }">
+                <p>Likes</p>
+                <h4>
+                  14.5K
+                </h4>
+              </div>
+              <div class="col-6 col-md-3 border-right" [ngClass]="{'mt-3': _themeService.is_mobile_device }">
+                <p>Comments</p>
+                <h4>
+                  1.5K
+                </h4>
+              </div>
+              <div class="col-6 col-md-3" [ngClass]="{'mt-3': _themeService.is_mobile_device }">
+                <p>Shares</p>
+                <h4>
+                  500
+                </h4>
+              </div>
+            </div>
+            <app-dashboard-multiple-area-chart [container]="multipleAreaChartContainer"></app-dashboard-multiple-area-chart>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card p-0" style="background: transparent; box-shadow: none;">
+          <div class="card-body p-0">
+            <h3 style="color: #000061;">Regions Covered</h3>
+            <app-dashboard-region-chart></app-dashboard-region-chart>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

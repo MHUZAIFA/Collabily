@@ -1,0 +1,22 @@
+<ngx-charts-line-chart
+  [view]="view"
+  [scheme]="colorScheme"
+  [legend]="legend"
+  [showXAxisLabel]="showXAxisLabel"
+  [showYAxisLabel]="showYAxisLabel"
+  [legendPosition]="legendPosition"
+  [xAxis]="xAxis"
+  [yAxis]="yAxis"
+  [xAxisLabel]="xAxisLabel"
+  [yAxisLabel]="yAxisLabel"
+  [showGridLines]="false"
+  [timeline]="timeline"
+  [results]="multi"
+  [legendTitle]="legendTitle"
+  [curve]="curve"
+  (select)="onSelect($event)"
+  (activate)="onActivate($event)"
+  (deactivate)="onDeactivate($event)"
+  (window:resize)="onResize()"
+  >
+</ngx-charts-line-chart>

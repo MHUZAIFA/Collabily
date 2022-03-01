@@ -165,8 +165,6 @@ export class OpportunitiesBrandManagerComponent
     },
   ];
 
-  @ViewChild(ChatWindowComponent) chatWindowComponent!: ChatWindowComponent;
-
   private _opportunity_summary_window_only = false;
 
   get is_mobile_device(): boolean {

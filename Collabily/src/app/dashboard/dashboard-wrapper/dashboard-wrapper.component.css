@@ -1,0 +1,81 @@
+.card {
+  margin: 10px 0;
+}
+
+.custom_icon {
+  background-color: darkblue !important;
+  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(0, 0, 0, 0.4);
+}
+
+.imp_value {
+  font-weight: 600;
+  letter-spacing: 0.03rem;
+  margin: 0 5px;
+  color: darkblue;
+}
+
+.custom_md_card {
+  margin-bottom: 30px;
+}
+
+.custom_md_card .card-icon {
+  margin-top: 0;
+}
+
+.custom_md_card .card-header.card-header-icon {
+  text-align: left;
+  margin: 15px;
+}
+
+.custom_md_card .card-header.card-header-icon i {
+  height: 50px;
+  width: 50px;
+}
+
+.custom_md_card .card-body p {
+  margin-bottom: 4px;
+  letter-spacing: 0.05rem;
+  color: #6c757d!important;
+  font-size: small;
+}
+
+
+.custom_md_card .card-body .social_icons {
+  font-size: small;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.custom_md_card .card-footer i {
+  color: darkblue;
+}
+
+.stats {
+  letter-spacing: 0.02rem;
+}
+
+.stats i {
+  color: darkblue;
+  height: 14px;
+  width: 14px;
+  font-size: small !important;
+  vertical-align: middle;
+}
+
+.engagement_card .card-header {
+  text-align: left;
+}
+
+.engagement_card .card-body p {
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  color: #6c757d;
+  letter-spacing: 0.03rem;
+}
+
+
+@media screen and (min-device-width : 400px) and (max-device-width : 950px) and (orientation : portrait) {
+  .card {
+    margin: 30px 0;
+  }
+}
